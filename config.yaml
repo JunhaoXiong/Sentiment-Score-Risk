@@ -26,3 +26,8 @@ fomc:
 sentiment:
   zscore_window: 250     # trading days of history for the rolling baseline
   zscore_min_periods: 120
+
+phase2:
+  window: 500          # user chose 2026-11-22 (sentiment z starts 2017-06)
+  refit_every: 21      # same as Market-Risk-Engine primary
+  significance: 0.05
