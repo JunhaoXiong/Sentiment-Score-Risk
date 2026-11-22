@@ -1,0 +1,28 @@
+# Sentiment-Score-Risk configuration (Phase 1)
+sample:
+  start: "2017-01-01"     # GDELT DOC timeline coverage starts here
+  end: "2025-12-31"
+  market_start: "2012-01-01"  # extra market history for later GARCH warm-up
+
+market:
+  tickers: ["SPY", "^VIX", "^VIX3M", "^VIX9D"]
+
+gdelt:
+  start: "20170101000000"
+  end: "20251231235959"
+  queries:
+    # primary: plain keyword query, US English sources
+    kw_stock_market: "\"stock market\" sourcecountry:US sourcelang:english"
+    # sensitivity: GDELT's own stock-market theme tag
+    stockmarket: "theme:ECON_STOCKMARKET sourcecountry:US sourcelang:english"
+  primary: kw_stock_market
+
+fomc:
+  years: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
+  # release time assumed for alignment (scheduled statements are 14:00 ET);
+  # we conservatively treat every statement as known at 16:00 ET of its date.
+  assumed_release_time_et: "16:00"
+
+sentiment:
+  zscore_window: 250     # trading days of history for the rolling baseline
+  zscore_min_periods: 120

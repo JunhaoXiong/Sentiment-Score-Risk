@@ -1,0 +1,128 @@
+{
+  "primary_query": "kw_stock_market",
+  "queries": {
+    "kw_stock_market": "\"stock market\" sourcecountry:US sourcelang:english",
+    "stockmarket": "theme:ECON_STOCKMARKET sourcecountry:US sourcelang:english"
+  },
+  "zscore_window": 250,
+  "n_days_with_z": 2128,
+  "z_first_day": "2017-06-27",
+  "tone_kw_stock_market": {
+    "mean": -0.61341,
+    "std": 0.717767,
+    "min": -3.9145,
+    "min_day": "2019-09-06",
+    "pct_negative": 0.816726
+  },
+  "corr_z_with": {
+    "r": -0.017956,
+    "abs_r": -0.25147,
+    "dlog_vix": 0.074038,
+    "vix_prev": -0.295404,
+    "vix_slope": -0.391793,
+    "rv5_fwd": -0.322163
+  },
+  "leadlag_corr_z_absr": {
+    "-5": -0.214216,
+    "-4": -0.216848,
+    "-3": -0.282746,
+    "-2": -0.3033,
+    "-1": -0.275876,
+    "0": -0.25147,
+    "1": -0.237692,
+    "2": -0.233338,
+    "3": -0.214928,
+    "4": -0.194405,
+    "5": -0.181001
+  },
+  "reg_absr_on_vix": {
+    "coef": {
+      "vix_prev_daily": 1.065218
+    },
+    "t": {
+      "vix_prev_daily": 9.183777
+    },
+    "r2": 0.310295,
+    "n": 2128
+  },
+  "reg_rv5_on_vix": {
+    "coef": {
+      "vix_prev": 1.125226
+    },
+    "t": {
+      "vix_prev": 10.197073
+    },
+    "r2": 0.514637,
+    "n": 2124
+  },
+  "reg_absr_on_vix_z": {
+    "coef": {
+      "vix_prev_daily": 1.011425,
+      "z": -0.00079
+    },
+    "t": {
+      "vix_prev_daily": 9.397455,
+      "z": -4.447879
+    },
+    "r2": 0.318572,
+    "n": 2128
+  },
+  "reg_rv5_on_vix_z": {
+    "coef": {
+      "vix_prev": 1.069202,
+      "z": -0.013087
+    },
+    "t": {
+      "vix_prev": 10.709096,
+      "z": -4.223737
+    },
+    "r2": 0.528024,
+    "n": 2124
+  },
+  "z_mean_on_worst1pct_days": -1.087156,
+  "z_mean_other_days": 0.013012,
+  "n_worst1pct": 22,
+  "fomc": {
+    "n": 74,
+    "words_median": 318.5,
+    "net_mean": 0.006411,
+    "net_min_date": "2022-06-15",
+    "net_max_date": "2024-06-12",
+    "unc_share_max_date": "2024-09-18",
+    "corr_net_absr_effective_day": -0.049254
+  },
+  "crises": {
+    "Volmageddon 2018-02": {
+      "worst_day": "2018-02-05",
+      "worst_r": -0.042722,
+      "z_min": -3.259067,
+      "z_min_day": "2018-02-07",
+      "vix_max_day": "2018-02-05",
+      "z_below_-2_first": "2018-02-07"
+    },
+    "COVID 2020-02/03": {
+      "worst_day": "2020-03-16",
+      "worst_r": -0.115887,
+      "z_min": -3.467388,
+      "z_min_day": "2020-03-02",
+      "vix_max_day": "2020-03-16",
+      "z_below_-2_first": "2020-02-26"
+    },
+    "2022 rate shock (Jun)": {
+      "worst_day": "2022-06-13",
+      "worst_r": -0.038708,
+      "z_min": -1.943733,
+      "z_min_day": "2022-06-15",
+      "vix_max_day": "2022-06-13",
+      "z_below_-2_first": null
+    },
+    "Tariff shock 2025-04": {
+      "worst_day": "2025-04-04",
+      "worst_r": -0.060327,
+      "z_min": -3.218634,
+      "z_min_day": "2025-04-09",
+      "vix_max_day": "2025-04-08",
+      "z_below_-2_first": "2025-03-21"
+    }
+  }
+}
