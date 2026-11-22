@@ -1,0 +1,23 @@
+[project]
+name = "ssr"
+version = "0.1.0"
+description = "Sentiment-Score-Risk: news/Fed sentiment as a market-risk early warning and an options volatility signal"
+requires-python = ">=3.10"
+dependencies = [
+  "pandas>=2.0", "numpy", "scipy", "requests", "pyyaml", "beautifulsoup4",
+  "yfinance", "pysentiment2", "matplotlib", "arch", "statsmodels",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

@@ -1,0 +1,13 @@
+{
+  "tickers": [
+    "SPY",
+    "^VIX",
+    "^VIX3M",
+    "^VIX9D"
+  ],
+  "start": "2012-01-01",
+  "end": "2025-12-31",
+  "source": "Yahoo Finance via yfinance, auto_adjust=True",
+  "sha256": "abf9e96eac3ea34c8d15a3fc925bbba2f9fc5f1152a64b0c62324984c16926d4",
+  "downloaded_utc": "2026-11-22T21:16:45.029165+00:00"
+}
