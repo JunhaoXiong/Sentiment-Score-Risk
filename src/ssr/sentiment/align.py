@@ -58,14 +58,21 @@ def et_time_to_utc(dates: pd.Series, hhmm: str) -> pd.Series:
     return ts.dt.tz_localize(ET).dt.tz_convert("UTC")
 
 
-def aggregate_gdelt(daily: pd.DataFrame, trading_days: pd.DatetimeIndex) -> pd.DataFrame:
+def aggregate_gdelt(daily: pd.DataFrame, trading_days: pd.DatetimeIndex,
+                    pub_shift_hours: float = 0.0) -> pd.DataFrame:
     """Map UTC-day GDELT bins to the trading day they become usable for.
 
     Several UTC days can map to one trading day (weekends, holidays): tone is
     combined as an article-count-weighted mean, counts are summed.
+
+    pub_shift_hours moves the assumed publication time. 0 (default) is the
+    honest rule. A negative value (e.g. -5) pretends a UTC day is complete
+    before the US close: that LEAKS the last 3-4 hours of news and is used only
+    as an *upper bound* on what a timelier (intraday-cut) signal could add.
     """
     df = daily.copy()
-    df["eff"] = effective_day(gdelt_day_end_utc(df.index), trading_days).values
+    pub = gdelt_day_end_utc(df.index) + pd.Timedelta(hours=pub_shift_hours)
+    df["eff"] = effective_day(pub, trading_days).values
     df = df.dropna(subset=["eff"])
     w = df["count"].where(df["count"] > 0)
     df["tone_x_w"] = df["tone"] * w

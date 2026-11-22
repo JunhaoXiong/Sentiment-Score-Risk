@@ -115,3 +115,12 @@ def test_fomc_extract_and_filter():
     assert not fomc.is_statement("FOMC reaffirms its Statement on Longer-Run Goals")
     assert fomc.candidate_links('<a href="/newsevents/pressreleases/monetary20200315a.htm">') == [
         "/newsevents/pressreleases/monetary20200315a.htm"]
+
+
+def test_upper_bound_shift_moves_bins_one_session_earlier():
+    idx = pd.DatetimeIndex(["2020-03-09", "2020-03-13"])  # Mon, Fri (EDT)
+    daily = pd.DataFrame({"tone": [-1.0, -2.0], "count": [10, 10], "total": [100, 100]}, index=idx)
+    honest = align.aggregate_gdelt(daily, DAYS)
+    bound = align.aggregate_gdelt(daily, DAYS, pub_shift_hours=-5)
+    assert list(honest.index) == [pd.Timestamp("2020-03-11"), pd.Timestamp("2020-03-17")]
+    assert list(bound.index) == [pd.Timestamp("2020-03-10"), pd.Timestamp("2020-03-16")]
