@@ -9,7 +9,8 @@ produced by the scripts here.
 | Phase | Content | State |
 |---|---|---|
 | 1 | Point-in-time sentiment pipeline: GDELT news tone, LM dictionary on FOMC statements, rolling z-scores, close-time alignment | merged (PR #1) |
-| 2 | Risk track: GJR-GARCH-X with sentiment vs GJR and GJR+VIX; rolling OOS VaR/ES (W=500); Kupiec, Christoffersen, Diebold-Mariano. **Result: no significant gain from news tone beyond GJR (in-sample delta = 0; OOS 99% DM p = 0.12)** | this PR |
+| 2 | Risk track: GJR-GARCH-X with sentiment vs GJR and GJR+VIX; rolling OOS VaR/ES (W=500); Kupiec, Christoffersen, Diebold-Mariano. **Result: no significant gain from news tone beyond GJR (in-sample delta = 0; OOS 99% DM p = 0.12)** | merged (PR #2) |
+| 2c | Timing upper bound: shift GDELT one session earlier (leaks 3-4h); still delta = 0, DM p = 0.15 → negative result robust to timing | this PR |
 | 2b | Sentiment-triggered stress tests | planned |
 | 3 | Quant track: sentiment-vs-implied-vol SPY straddle strategy (VIX as IV proxy, model pricing), Greeks, VaR/ES, gap + IV-crush stress | planned |
 | 4 | FinBERT challenger; forward test on stored live option-chain snapshots | planned |

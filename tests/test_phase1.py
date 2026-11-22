@@ -115,3 +115,25 @@ def test_fomc_extract_and_filter():
     assert not fomc.is_statement("FOMC reaffirms its Statement on Longer-Run Goals")
     assert fomc.candidate_links('<a href="/newsevents/pressreleases/monetary20200315a.htm">') == [
         "/newsevents/pressreleases/monetary20200315a.htm"]
+
+
+def test_upper_bound_shift_moves_bins_one_session_earlier():
+    idx = pd.DatetimeIndex(["2020-03-09", "2020-03-13"])  # Mon, Fri (EDT)
+    daily = pd.DataFrame({"tone": [-1.0, -2.0], "count": [10, 10], "total": [100, 100]}, index=idx)
+    honest = align.aggregate_gdelt(daily, DAYS)
+    bound = align.aggregate_gdelt(daily, DAYS, pub_shift_hours=-5)
+    assert list(honest.index) == [pd.Timestamp("2020-03-11"), pd.Timestamp("2020-03-17")]
+    assert list(bound.index) == [pd.Timestamp("2020-03-10"), pd.Timestamp("2020-03-16")]
+
+
+def test_rolling_residual_uses_past_coefficients_only():
+    rng = np.random.default_rng(9)
+    n = 400
+    x = pd.DataFrame({"x": rng.standard_normal(n)})
+    y = 2 * x["x"] + 0.1 * rng.standard_normal(n)
+    res = standardize.rolling_residual(y, x, window=100, min_periods=50)
+    assert res.iloc[:50].isna().all()
+    assert res.iloc[60:].abs().mean() < 0.2  # relationship removed
+    y2 = y.copy(); y2.iloc[300:] += 100.0      # future shock
+    res2 = standardize.rolling_residual(y2, x, window=100, min_periods=50)
+    pd.testing.assert_series_equal(res.iloc[:300], res2.iloc[:300])

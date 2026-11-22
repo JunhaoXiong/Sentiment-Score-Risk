@@ -1,0 +1,203 @@
+{
+  "note": "bound variant leaks 3-4h of post-close news; upper bound only",
+  "corr_z_absr_same_day": {
+    "honest": -0.25147,
+    "bound": -0.290403
+  },
+  "corr_z_absr_next_day": {
+    "honest": -0.237692,
+    "bound": -0.245
+  },
+  "sample": [
+    "2017-06-27",
+    "2025-12-31",
+    2125
+  ],
+  "full_sample": {
+    "M0 GJR": {
+      "loglik": -12527.858548,
+      "delta": {},
+      "converged": true
+    },
+    "M1 GJR+VIX": {
+      "loglik": -12501.011519,
+      "delta": {
+        "vix": 0.089205
+      },
+      "converged": true
+    },
+    "M2h GJR+SENT(honest)": {
+      "loglik": -12527.858548,
+      "delta": {
+        "neg_honest": 0.0
+      },
+      "converged": true
+    },
+    "M2b GJR+SENT(bound)": {
+      "loglik": -12527.858548,
+      "delta": {
+        "neg_bound": 0.0
+      },
+      "converged": true
+    },
+    "M3h GJR+VIX+SENT(honest)": {
+      "loglik": -12501.011519,
+      "delta": {
+        "vix": 0.089217,
+        "neg_honest": 0.0
+      },
+      "converged": true
+    },
+    "M3b GJR+VIX+SENT(bound)": {
+      "loglik": -12501.011519,
+      "delta": {
+        "vix": 0.089216,
+        "neg_bound": 0.0
+      },
+      "converged": true
+    }
+  },
+  "oos": [
+    "2019-06-25",
+    "2025-12-31",
+    1625
+  ],
+  "backtests": {
+    "M0 GJR": {
+      "95": {
+        "violations": 122,
+        "expected": 81.25,
+        "kupiec_p": 1.5e-05,
+        "cc_p": 0.000101,
+        "tick_x1e4": 13.244154
+      },
+      "99": {
+        "violations": 27,
+        "expected": 16.25,
+        "kupiec_p": 0.014386,
+        "cc_p": 0.031483,
+        "tick_x1e4": 4.064813
+      }
+    },
+    "M1 GJR+VIX": {
+      "95": {
+        "violations": 113,
+        "expected": 81.25,
+        "kupiec_p": 0.000623,
+        "cc_p": 0.002846,
+        "tick_x1e4": 13.281236
+      },
+      "99": {
+        "violations": 25,
+        "expected": 16.25,
+        "kupiec_p": 0.043219,
+        "cc_p": 0.090334,
+        "tick_x1e4": 4.037277
+      }
+    },
+    "M2h GJR+SENT(honest)": {
+      "95": {
+        "violations": 123,
+        "expected": 81.25,
+        "kupiec_p": 9e-06,
+        "cc_p": 6.8e-05,
+        "tick_x1e4": 13.288382
+      },
+      "99": {
+        "violations": 27,
+        "expected": 16.25,
+        "kupiec_p": 0.014386,
+        "cc_p": 0.038263,
+        "tick_x1e4": 4.139174
+      }
+    },
+    "M2b GJR+SENT(bound)": {
+      "95": {
+        "violations": 121,
+        "expected": 81.25,
+        "kupiec_p": 2.3e-05,
+        "cc_p": 0.000178,
+        "tick_x1e4": 13.276383
+      },
+      "99": {
+        "violations": 25,
+        "expected": 16.25,
+        "kupiec_p": 0.043219,
+        "cc_p": 0.090334,
+        "tick_x1e4": 4.061116
+      }
+    },
+    "M3h GJR+VIX+SENT(honest)": {
+      "95": {
+        "violations": 113,
+        "expected": 81.25,
+        "kupiec_p": 0.000623,
+        "cc_p": 0.002846,
+        "tick_x1e4": 13.270446
+      },
+      "99": {
+        "violations": 27,
+        "expected": 16.25,
+        "kupiec_p": 0.014386,
+        "cc_p": 0.038263,
+        "tick_x1e4": 4.0356
+      }
+    },
+    "M3b GJR+VIX+SENT(bound)": {
+      "95": {
+        "violations": 116,
+        "expected": 81.25,
+        "kupiec_p": 0.000193,
+        "cc_p": 0.001106,
+        "tick_x1e4": 13.27399
+      },
+      "99": {
+        "violations": 24,
+        "expected": 16.25,
+        "kupiec_p": 0.071183,
+        "cc_p": 0.129805,
+        "tick_x1e4": 3.988682
+      }
+    }
+  },
+  "diebold_mariano": {
+    "95": {
+      "M2b vs M0": {
+        "mean_diff": 3e-06,
+        "dm": 0.516987,
+        "p": 0.605165
+      },
+      "M3b vs M1": {
+        "mean_diff": -1e-06,
+        "dm": -0.128306,
+        "p": 0.897907
+      },
+      "M3h vs M1": {
+        "mean_diff": -1e-06,
+        "dm": -0.206661,
+        "p": 0.836275
+      }
+    },
+    "99": {
+      "M2b vs M0": {
+        "mean_diff": -0.0,
+        "dm": -0.120413,
+        "p": 0.904156
+      },
+      "M3b vs M1": {
+        "mean_diff": -5e-06,
+        "dm": -1.428908,
+        "p": 0.153031
+      },
+      "M3h vs M1": {
+        "mean_diff": -0.0,
+        "dm": -0.044094,
+        "p": 0.964829
+      }
+    }
+  },
+  "tariff_pre10_var99_uplift": {
+    "M3h over M1": 0.032646,
+    "M3b over M1": 0.060756
+  }
+}

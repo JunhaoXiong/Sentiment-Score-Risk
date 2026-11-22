@@ -1,0 +1,177 @@
+{
+  "in_sample_r2_z_on_past_market": 0.198578,
+  "n_in_sample": 2128,
+  "oos_corr_z_fitted": 0.525174,
+  "corr": {
+    "z": {
+      "abs_r_t": -0.25147,
+      "abs_r_t+1": -0.237691,
+      "rv5_fwd": -0.322163
+    },
+    "surprise_z": {
+      "abs_r_t": 0.154709,
+      "abs_r_t+1": 0.178439,
+      "rv5_fwd": 0.21424
+    }
+  },
+  "sample": [
+    "2018-06-11",
+    "2025-12-31",
+    1888
+  ],
+  "full_sample": {
+    "M0 GJR": {
+      "loglik": -11220.335313,
+      "delta": {}
+    },
+    "M1 GJR+VIX": {
+      "loglik": -11203.535149,
+      "delta": {
+        "vix": 0.084646
+      }
+    },
+    "M3 GJR+VIX+SENT": {
+      "loglik": -11203.293445,
+      "delta": {
+        "vix": 0.08333,
+        "neg_z": 0.015958
+      }
+    },
+    "M4 GJR+SURPRISE": {
+      "loglik": -11220.313954,
+      "delta": {
+        "neg_s": 0.002586
+      }
+    },
+    "M5 GJR+VIX+SURPRISE": {
+      "loglik": -11203.53404,
+      "delta": {
+        "vix": 0.084153,
+        "neg_s": 0.000676
+      }
+    }
+  },
+  "oos": [
+    "2020-06-05",
+    "2025-12-31",
+    1388
+  ],
+  "backtests": {
+    "M0 GJR": {
+      "95": {
+        "violations": 98,
+        "expected": 69.4,
+        "kupiec_p": 0.000882,
+        "cc_p": 0.003535,
+        "tick_x1e4": 12.461745
+      },
+      "99": {
+        "violations": 26,
+        "expected": 13.88,
+        "kupiec_p": 0.003542,
+        "cc_p": 0.011358,
+        "tick_x1e4": 3.989545
+      }
+    },
+    "M1 GJR+VIX": {
+      "95": {
+        "violations": 92,
+        "expected": 69.4,
+        "kupiec_p": 0.007885,
+        "cc_p": 0.026788,
+        "tick_x1e4": 12.544719
+      },
+      "99": {
+        "violations": 25,
+        "expected": 13.88,
+        "kupiec_p": 0.007005,
+        "cc_p": 0.020157,
+        "tick_x1e4": 3.972659
+      }
+    },
+    "M3 GJR+VIX+SENT": {
+      "95": {
+        "violations": 92,
+        "expected": 69.4,
+        "kupiec_p": 0.007885,
+        "cc_p": 0.026788,
+        "tick_x1e4": 12.507987
+      },
+      "99": {
+        "violations": 26,
+        "expected": 13.88,
+        "kupiec_p": 0.003542,
+        "cc_p": 0.011358,
+        "tick_x1e4": 3.978662
+      }
+    },
+    "M4 GJR+SURPRISE": {
+      "95": {
+        "violations": 97,
+        "expected": 69.4,
+        "kupiec_p": 0.001303,
+        "cc_p": 0.00555,
+        "tick_x1e4": 12.478953
+      },
+      "99": {
+        "violations": 26,
+        "expected": 13.88,
+        "kupiec_p": 0.003542,
+        "cc_p": 0.011358,
+        "tick_x1e4": 3.986591
+      }
+    },
+    "M5 GJR+VIX+SURPRISE": {
+      "95": {
+        "violations": 94,
+        "expected": 69.4,
+        "kupiec_p": 0.003959,
+        "cc_p": 0.012348,
+        "tick_x1e4": 12.554111
+      },
+      "99": {
+        "violations": 26,
+        "expected": 13.88,
+        "kupiec_p": 0.003542,
+        "cc_p": 0.011358,
+        "tick_x1e4": 4.062507
+      }
+    }
+  },
+  "diebold_mariano": {
+    "95": {
+      "M4 vs M0": {
+        "mean_diff": 2e-06,
+        "dm": 0.783732,
+        "p": 0.433197
+      },
+      "M5 vs M1": {
+        "mean_diff": 1e-06,
+        "dm": 0.276846,
+        "p": 0.781898
+      },
+      "M3 vs M1": {
+        "mean_diff": -4e-06,
+        "dm": -0.675484,
+        "p": 0.499368
+      }
+    },
+    "99": {
+      "M4 vs M0": {
+        "mean_diff": -0.0,
+        "dm": -0.153202,
+        "p": 0.878239
+      },
+      "M5 vs M1": {
+        "mean_diff": 9e-06,
+        "dm": 1.383159,
+        "p": 0.166616
+      },
+      "M3 vs M1": {
+        "mean_diff": 1e-06,
+        "dm": 0.171862,
+        "p": 0.863546
+      }
+    }
+  }
+}
