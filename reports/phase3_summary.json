@@ -1,0 +1,479 @@
+{
+  "sample": [
+    "2017-06-27",
+    "2025-12-31"
+  ],
+  "config": {
+    "tenor_days": 30,
+    "entry_every": 21,
+    "iv_mult": 0.9,
+    "option_cost": 0.01,
+    "hedge_cost_bp": 1.0,
+    "notional": 1000000
+  },
+  "n_entry_days_inverted": 174,
+  "n_entry_days_z_lt_-2": 117,
+  "n_entry_days": 2128,
+  "primary": {
+    "A always short": {
+      "ann_pnl": 32425.060724,
+      "ann_vol": 50979.642868,
+      "sharpe": 0.636039,
+      "max_dd": -149035.767883,
+      "worst_day": -40710.156057,
+      "worst_day_date": "2020-06-11",
+      "var99_hist": 11219.5797,
+      "es99_hist": 20648.520027,
+      "n_trades": 101,
+      "n_flat": 0,
+      "n_long": 0,
+      "mean_trade": 2727.567775,
+      "t_mean_trade": 1.726661,
+      "win_rate": 0.70297,
+      "worst_trade": -113900.240539
+    },
+    "B skip if inverted": {
+      "ann_pnl": 33491.632101,
+      "ann_vol": 40589.933228,
+      "sharpe": 0.825122,
+      "max_dd": -54144.771515,
+      "worst_day": -40710.156057,
+      "worst_day_date": "2020-06-11",
+      "var99_hist": 8975.083969,
+      "es99_hist": 15800.223856,
+      "n_trades": 88,
+      "n_flat": 13,
+      "n_long": 0,
+      "mean_trade": 3233.476927,
+      "t_mean_trade": 3.077991,
+      "win_rate": 0.715909,
+      "worst_trade": -29269.879238
+    },
+    "C skip if z<-2": {
+      "ann_pnl": 44458.015284,
+      "ann_vol": 43824.706919,
+      "sharpe": 1.014451,
+      "max_dd": -54185.753624,
+      "worst_day": -40710.156057,
+      "worst_day_date": "2020-06-11",
+      "var99_hist": 9574.928156,
+      "es99_hist": 16541.895803,
+      "n_trades": 92,
+      "n_flat": 9,
+      "n_long": 0,
+      "mean_trade": 4105.616405,
+      "t_mean_trade": 3.692897,
+      "win_rate": 0.728261,
+      "worst_trade": -29269.879238
+    },
+    "D skip if either": {
+      "ann_pnl": 32537.584192,
+      "ann_vol": 40234.082496,
+      "sharpe": 0.808707,
+      "max_dd": -54144.771515,
+      "worst_day": -40710.156057,
+      "worst_day_date": "2020-06-11",
+      "var99_hist": 8975.083969,
+      "es99_hist": 15800.223856,
+      "n_trades": 84,
+      "n_flat": 17,
+      "n_long": 0,
+      "mean_trade": 3290.956527,
+      "t_mean_trade": 3.029423,
+      "win_rate": 0.72619,
+      "worst_trade": -29269.879238
+    },
+    "E long if z<-2": {
+      "ann_pnl": 53036.927485,
+      "ann_vol": 50870.536826,
+      "sharpe": 1.042586,
+      "max_dd": -71912.101121,
+      "worst_day": -40710.156057,
+      "worst_day_date": "2020-06-11",
+      "var99_hist": 9822.157582,
+      "es99_hist": 16683.930209,
+      "n_trades": 101,
+      "n_flat": 0,
+      "n_long": 9,
+      "mean_trade": 4461.419996,
+      "t_mean_trade": 2.970353,
+      "win_rate": 0.712871,
+      "worst_trade": -29269.879238
+    },
+    "F long if inverted": {
+      "ann_pnl": 28951.555993,
+      "ann_vol": 50940.213891,
+      "sharpe": 0.568344,
+      "max_dd": -69919.900167,
+      "worst_day": -40710.156057,
+      "worst_day_date": "2020-06-11",
+      "var99_hist": 9660.874324,
+      "es99_hist": 16718.148842,
+      "n_trades": 101,
+      "n_flat": 0,
+      "n_long": 13,
+      "mean_trade": 2435.379592,
+      "t_mean_trade": 1.546098,
+      "win_rate": 0.663366,
+      "worst_trade": -39833.705349
+    }
+  },
+  "A_trades_when": {
+    "inverted": {
+      "n": 13,
+      "mean": -697.048022,
+      "sum": -9061.624285,
+      "values": [
+        5647,
+        3340,
+        16152,
+        -113900,
+        19268,
+        24819,
+        14643,
+        -5532,
+        -1863,
+        36495,
+        -12007,
+        -15225,
+        19103
+      ]
+    },
+    "z<-2": {
+      "n": 9,
+      "mean": -11359.151549,
+      "sum": -102232.36394,
+      "values": [
+        3978,
+        13201,
+        16152,
+        -113900,
+        14643,
+        -4126,
+        -4947,
+        -12007,
+        -15225
+      ]
+    }
+  },
+  "A_trade_dist": {
+    "n": 101,
+    "mean": 2727.567775,
+    "median": 4055.343107,
+    "min": -113900.240539,
+    "p05": -17237.364384,
+    "max": 36494.545776
+  },
+  "A_vrp": {
+    "mean_iv0": 0.18033,
+    "mean_realized": 0.153975,
+    "share_iv_gt_rv": 0.772277
+  },
+  "sensitivity": {
+    "unhedged": {
+      "A always short": {
+        "ann_pnl": -17268.83519,
+        "sharpe": -0.14726,
+        "max_dd": -367440.651489,
+        "n_trades": 101
+      },
+      "B skip if inverted": {
+        "ann_pnl": -9200.435544,
+        "sharpe": -0.106445,
+        "max_dd": -253926.213503,
+        "n_trades": 88
+      },
+      "C skip if z<-2": {
+        "ann_pnl": 7271.424565,
+        "sharpe": 0.079696,
+        "max_dd": -233428.32489,
+        "n_trades": 92
+      },
+      "D skip if either": {
+        "ann_pnl": -2049.730549,
+        "sharpe": -0.024681,
+        "max_dd": -272217.303825,
+        "n_trades": 84
+      },
+      "E long if z<-2": {
+        "ann_pnl": 29096.038545,
+        "sharpe": 0.248815,
+        "max_dd": -237064.318058,
+        "n_trades": 101
+      },
+      "F long if inverted": {
+        "ann_pnl": -5594.798025,
+        "sharpe": -0.04792,
+        "max_dd": -289962.468825,
+        "n_trades": 101
+      }
+    },
+    "daily ladder": {
+      "A always short": {
+        "ann_pnl": 29779.579462,
+        "sharpe": 0.654223,
+        "max_dd": -104346.169979,
+        "n_trades": 2107
+      },
+      "B skip if inverted": {
+        "ann_pnl": 31885.666033,
+        "sharpe": 0.826961,
+        "max_dd": -64769.861381,
+        "n_trades": 1933
+      },
+      "C skip if z<-2": {
+        "ann_pnl": 33735.410016,
+        "sharpe": 0.832373,
+        "max_dd": -65126.017498,
+        "n_trades": 1990
+      },
+      "D skip if either": {
+        "ann_pnl": 32249.520953,
+        "sharpe": 0.86936,
+        "max_dd": -62530.948784,
+        "n_trades": 1860
+      },
+      "E long if z<-2": {
+        "ann_pnl": 35875.532024,
+        "sharpe": 0.939605,
+        "max_dd": -64986.3302,
+        "n_trades": 2107
+      },
+      "F long if inverted": {
+        "ann_pnl": 30611.996189,
+        "sharpe": 0.780511,
+        "max_dd": -64785.349993,
+        "n_trades": 2107
+      }
+    },
+    "iv_mult 0.85": {
+      "A always short": {
+        "ann_pnl": 6616.476113,
+        "sharpe": 0.133757,
+        "max_dd": -170213.523189,
+        "n_trades": 101
+      },
+      "B skip if inverted": {
+        "ann_pnl": 13607.696795,
+        "sharpe": 0.344223,
+        "max_dd": -79312.685407,
+        "n_trades": 88
+      },
+      "C skip if z<-2": {
+        "ann_pnl": 21364.796308,
+        "sharpe": 0.501146,
+        "max_dd": -85659.115098,
+        "n_trades": 92
+      },
+      "D skip if either": {
+        "ann_pnl": 13250.817983,
+        "sharpe": 0.338105,
+        "max_dd": -79312.685407,
+        "n_trades": 84
+      },
+      "E long if z<-2": {
+        "ann_pnl": 32706.835234,
+        "sharpe": 0.662347,
+        "max_dd": -91674.300716,
+        "n_trades": 101
+      },
+      "F long if inverted": {
+        "ann_pnl": 15091.451978,
+        "sharpe": 0.305438,
+        "max_dd": -95838.2918,
+        "n_trades": 101
+      }
+    },
+    "iv_mult 1.0": {
+      "A always short": {
+        "ann_pnl": 84216.453054,
+        "sharpe": 1.542984,
+        "max_dd": -142531.073576,
+        "n_trades": 101
+      },
+      "B skip if inverted": {
+        "ann_pnl": 73475.304241,
+        "sharpe": 1.703777,
+        "max_dd": -45212.961291,
+        "n_trades": 88
+      },
+      "C skip if z<-2": {
+        "ann_pnl": 90816.724317,
+        "sharpe": 1.945874,
+        "max_dd": -42828.322253,
+        "n_trades": 92
+      },
+      "D skip if either": {
+        "ann_pnl": 71311.070781,
+        "sharpe": 1.668509,
+        "max_dd": -45212.961291,
+        "n_trades": 84
+      },
+      "E long if z<-2": {
+        "ann_pnl": 93865.210024,
+        "sharpe": 1.722788,
+        "max_dd": -66851.116508,
+        "n_trades": 101
+      },
+      "F long if inverted": {
+        "ann_pnl": 56925.992249,
+        "sharpe": 1.04129,
+        "max_dd": -76145.033453,
+        "n_trades": 101
+      }
+    },
+    "cost 0.5%": {
+      "A always short": {
+        "ann_pnl": 37371.660168,
+        "sharpe": 0.734468,
+        "max_dd": -146873.61766,
+        "n_trades": 101
+      },
+      "B skip if inverted": {
+        "ann_pnl": 37322.541014,
+        "sharpe": 0.920679,
+        "max_dd": -49884.523599,
+        "n_trades": 88
+      },
+      "C skip if z<-2": {
+        "ann_pnl": 48725.703285,
+        "sharpe": 1.114278,
+        "max_dd": -49936.347745,
+        "n_trades": 92
+      },
+      "D skip if either": {
+        "ann_pnl": 36192.461536,
+        "sharpe": 0.900661,
+        "max_dd": -49884.523599,
+        "n_trades": 84
+      },
+      "E long if z<-2": {
+        "ann_pnl": 57983.526929,
+        "sharpe": 1.142057,
+        "max_dd": -66266.731359,
+        "n_trades": 101
+      },
+      "F long if inverted": {
+        "ann_pnl": 33898.155437,
+        "sharpe": 0.66674,
+        "max_dd": -64431.645718,
+        "n_trades": 101
+      }
+    },
+    "cost 2%": {
+      "A always short": {
+        "ann_pnl": 22531.861835,
+        "sharpe": 0.439399,
+        "max_dd": -153360.068329,
+        "n_trades": 101
+      },
+      "B skip if inverted": {
+        "ann_pnl": 25829.814275,
+        "sharpe": 0.633522,
+        "max_dd": -66906.754472,
+        "n_trades": 88
+      },
+      "C skip if z<-2": {
+        "ann_pnl": 35922.639281,
+        "sharpe": 0.814346,
+        "max_dd": -64372.888457,
+        "n_trades": 92
+      },
+      "D skip if either": {
+        "ann_pnl": 25227.829505,
+        "sharpe": 0.624313,
+        "max_dd": -66906.754472,
+        "n_trades": 84
+      },
+      "E long if z<-2": {
+        "ann_pnl": 43143.728596,
+        "sharpe": 0.843067,
+        "max_dd": -86306.790277,
+        "n_trades": 101
+      },
+      "F long if inverted": {
+        "ann_pnl": 19058.357104,
+        "sharpe": 0.371924,
+        "max_dd": -86129.631961,
+        "n_trades": 101
+      }
+    }
+  },
+  "paired_diff_tstats": {
+    "monthly": {
+      "C - A": {
+        "mean_diff": -47.74982,
+        "dm": -0.906816,
+        "p": 0.364504
+      },
+      "B - A": {
+        "mean_diff": -4.232426,
+        "dm": -0.074879,
+        "p": 0.940311
+      },
+      "C - B": {
+        "mean_diff": -43.517394,
+        "dm": -1.730974,
+        "p": 0.083456
+      },
+      "D - B": {
+        "mean_diff": 3.785904,
+        "dm": 0.551523,
+        "p": 0.581275
+      },
+      "E - A": {
+        "mean_diff": -81.793122,
+        "dm": -0.788679,
+        "p": 0.4303
+      },
+      "E - F": {
+        "mean_diff": -95.576871,
+        "dm": -1.835626,
+        "p": 0.066413
+      }
+    },
+    "daily ladder": {
+      "C - A": {
+        "mean_diff": -15.69774,
+        "dm": -0.869172,
+        "p": 0.384753
+      },
+      "B - A": {
+        "mean_diff": -8.357486,
+        "dm": -0.286929,
+        "p": 0.774167
+      },
+      "C - B": {
+        "mean_diff": -7.340254,
+        "dm": -0.510399,
+        "p": 0.609772
+      },
+      "D - B": {
+        "mean_diff": -1.443869,
+        "dm": -0.259173,
+        "p": 0.795501
+      },
+      "E - A": {
+        "mean_diff": -24.190288,
+        "dm": -0.683751,
+        "p": 0.494132
+      },
+      "E - F": {
+        "mean_diff": -20.887047,
+        "dm": -0.709508,
+        "p": 0.478009
+      }
+    }
+  },
+  "greeks_at_open_A_mean": {
+    "vega0": -2280.212343,
+    "gamma0": -178.530036,
+    "theta0_day": 688.133383,
+    "premium": 41262.578463
+  },
+  "stress_setup": {
+    "vix_median": 17.025,
+    "sigma0": 0.153225,
+    "premium": 35072.86489
+  }
+}

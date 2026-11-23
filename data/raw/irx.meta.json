@@ -1,0 +1,5 @@
+{
+  "ticker": "^IRX",
+  "source": "Yahoo via yfinance",
+  "sha256": "266fd7937a1645627d77ccf3df0f2578dde6f50109413670b5e569975c320027"
+}

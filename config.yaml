@@ -31,3 +31,16 @@ phase2:
   window: 500          # user chose 2026-11-22 (sentiment z starts 2017-06)
   refit_every: 21      # same as Market-Risk-Engine primary
   significance: 0.05
+
+phase3:
+  tenor_days: 30
+  entry_every: 21
+  iv_mult: 0.9            # ATM IV ~ 0.9 x VIX (sensitivity 0.85 / 1.0)
+  option_cost: 0.01       # of straddle value, at open and at close (sens 0.005 / 0.02)
+  hedge_cost_bp: 1.0
+  notional: 1000000
+  z_skip: -2.0            # fixed ex ante, not optimised
+  term_ratio_skip: 1.0    # VIX/VIX3M > 1 = inverted
+  # Heston spot-vol link for stress (Heston-Option-Risk reports/phase3_params.json, 2026-11-20)
+  heston_unconstrained: {sigma: 2.245687, rho: -0.774007}
+  heston_feller: {sigma: 0.901058, rho: -0.999}
