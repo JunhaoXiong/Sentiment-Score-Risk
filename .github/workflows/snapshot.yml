@@ -1,0 +1,42 @@
+name: daily option snapshot
+
+# 19:50 UTC = 15:50 EDT / 14:50 EST, Mon-Fri (before the close, quotes live).
+on:
+  schedule:
+    - cron: "50 19 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency: snapshot
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: install
+        run: pip install pandas numpy scipy requests pyyaml yfinance
+      - name: open snapshots branch
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin snapshots >/dev/null; then
+            git clone --depth 1 --branch snapshots "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" store
+          else
+            mkdir store && cd store && git init -b snapshots \
+              && git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+          fi
+      - name: collect
+        run: python scripts/collect_snapshot.py store
+      - name: commit
+        run: |
+          cd store
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m "snapshot $(TZ=America/New_York date +%F)"
+          git push origin snapshots

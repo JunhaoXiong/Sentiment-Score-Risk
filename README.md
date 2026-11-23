@@ -13,7 +13,8 @@ produced by the scripts here.
 | 2c | Timing upper bound: shift GDELT one session earlier (leaks 3-4h); still delta = 0, DM p = 0.15 → negative result robust to timing | merged (PR #3) |
 | 2b | Sentiment-triggered stress tests | planned |
 | 3 | Quant track: delta-hedged 30d ATM SPY straddles (IV = 0.9×VIX, BS re-marked daily), six signals (always short / term-structure / sentiment filters, long flips), Greeks, VaR/ES, Heston spot-vol stress. **Filters cut drawdowns ~40–60%; sentiment ≈ term structure, edge not significant with 2,100 daily-ladder trades** | this PR |
-| 4 | FinBERT challenger; forward test on stored live option-chain snapshots | planned |
+| 4 | Forward test: GitHub Action stores a SPY option-chain snapshot every trading day (branch `snapshots`); `scripts/forward_report.py` checks real 30d ATM IV vs VIX and paper-trades signals A–D on real quotes | collecting (this PR) |
+| 5 | FinBERT challenger | planned |
 
 ## Data (all free)
 | Source | What | Coverage |
@@ -39,4 +40,8 @@ pip install -e .[test]
 python scripts/download_gdelt.py      # slow: GDELT rate limits hard
 python scripts/phase1_analysis.py
 pytest
+
+# forward test (after some snapshot days have accumulated)
+git fetch origin snapshots && git worktree add ../ssr-snapshots snapshots
+python scripts/forward_report.py ../ssr-snapshots
 ```
