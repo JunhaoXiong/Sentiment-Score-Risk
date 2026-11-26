@@ -8,5 +8,10 @@
     "quote_ok_share": 0.9570966794005289,
     "rows": 3403,
     "sha256": "2886900fc80d2559f04bdca81720a3c43da0f5e7995556c40de1e409c372ee49"
+  },
+  "spy_chain_2026-11-25.csv.gz": {
+    "quote_ok_share": 0.9485445457218465,
+    "rows": 3401,
+    "sha256": "61c5e918805914118f5e4cfdc40c679eb2ae4a7466161da38ba46088036abb9d"
   }
 }
