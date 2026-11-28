@@ -18,5 +18,10 @@
     "quote_ok_share": 0.9611365120836055,
     "rows": 3062,
     "sha256": "5f51477b7699185cbdc0765f84076103953d73464d0432ffd232c50c5a5cb51d"
+  },
+  "spy_chain_2026-11-27.csv.gz": {
+    "quote_ok_share": 0.9401960784313725,
+    "rows": 3060,
+    "sha256": "d2d595aafaaf67bea9cb62497c812b5fbeba57d55a3964e8309a66025619efb1"
   }
 }
